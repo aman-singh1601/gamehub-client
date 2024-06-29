@@ -6,7 +6,9 @@ import {
     GET_USER_FAIL,
     GET_USER_SUCCESS,
     GET_ALL_USERS_SUCCESS,
-    GET_FOLLOWING_USERS_SUCCESS
+    GET_FOLLOWING_USERS_SUCCESS,
+    PLAYER_UNFOLLOWED,
+    PLAYER_FOLLOWED
 } from "./actionTypes";
 
 
@@ -17,7 +19,7 @@ interface initialStateType {
     success: null | string,
 }
 
-const INIT = {
+const INIT: initialStateType = {
     allUsers: [],
     followingUsers: [],
     error: null,
@@ -61,12 +63,25 @@ const auth = (state = INIT, action: any) => {
                 allUsers: action.payload
             }
             break;
-        case GET_FOLLOWING_USERS_SUCCESS: 
-            state= {
+        case GET_FOLLOWING_USERS_SUCCESS:
+            state = {
                 ...state,
                 followingUsers: action.payload
             }
             break;
+        case PLAYER_UNFOLLOWED:
+            state = {
+                ...state,
+                followingUsers: state.followingUsers.filter((users: any) => users.id != action.payload.id)
+            }
+            break;
+        case PLAYER_FOLLOWED: 
+            state = {
+                ...state,
+                followingUsers: [...state.followingUsers, action.payload]
+            }
+            break;
+
         default: state = { ...state }
     }
     return state;
