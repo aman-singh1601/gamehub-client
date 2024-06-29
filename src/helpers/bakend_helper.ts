@@ -8,5 +8,10 @@ export const getallusers = () => get(url.GET_ALL_USERS);
 export const getfollowingusers = () => get(url.GET_FOLLOWING_USERS);
 
 export const getplayerprofile = (id: string) => get(`${url.GET_PLAYER_PROFILE}/${id}`);
+
 export const followplayer = (id: string) => post(url.FOLLOW_PLAYER, {id});
 export const unfollowplayer = (id: string) => post(url.UNFOLLOW_PLAYER, {id});
+
+export const blockplayer = (id: string) => post(`${url.BLOCK_PLAYER}`, {id});
+export const unblockplayer = (id: string) => del(`${url.BLOCK_PLAYER}/${id}`);
+

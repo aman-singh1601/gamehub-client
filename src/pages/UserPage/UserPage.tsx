@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { followPlayer, getPlayerProfile, unfollowPlayer } from '@/store/actions';
+import {blockPlayer, followPlayer, getPlayerProfile, unblockPlayer, unfollowPlayer } from '@/store/actions';
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom'
@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom'
 const UserPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const { player, isFollowing } = useSelector((state: any) => state.player);
+  const { player, isFollowing, isBlocked } = useSelector((state: any) => state.player);
 
   const onFollow = () => {
     if (id) {
@@ -18,6 +18,16 @@ const UserPage = () => {
     if(id){
       dispatch(unfollowPlayer(id));
     } 
+  }
+  const block = () => {
+    if(id) {
+      dispatch(blockPlayer(id));
+    }
+  }
+  const unblock = () => {
+    if(id) {
+      dispatch(unblockPlayer(id));
+    }
   }
 
   useEffect(() => {
@@ -35,6 +45,15 @@ const UserPage = () => {
         </Button>:
         <Button onClick={onFollow}>
           Follow
+        </Button>
+      }
+      { 
+        isBlocked?
+        <Button onClick={unblock}>
+          Unblock
+        </Button>:
+        <Button onClick={block}>
+          Block
         </Button>
       }
 

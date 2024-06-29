@@ -6,7 +6,9 @@ import {
     GET_ALL_USERS,
     GET_ALL_USERS_SUCCESS,
     GET_FOLLOWING_USERS,
-    GET_FOLLOWING_USERS_SUCCESS
+    GET_FOLLOWING_USERS_SUCCESS,
+    PLAYER_UNFOLLOWED,
+    PLAYER_FOLLOWED
 } from "./actionTypes";
 
 export const userLogin = (number: string) => ({
@@ -44,4 +46,14 @@ export const getFollowingUsers = () => ({
 export const getFollowingUsersSuccess = (users: any) => ({
     type: GET_FOLLOWING_USERS_SUCCESS,
     payload: users
+})
+
+export const playerUnfollowed = (user: any) => ({
+    type: PLAYER_UNFOLLOWED,
+    payload: user
+})
+
+export const playerFollowed = (user: any) => ({
+    type: PLAYER_FOLLOWED,
+    payload: user
 })

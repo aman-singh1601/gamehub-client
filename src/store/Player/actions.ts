@@ -1,4 +1,4 @@
-import { FOLLOW_PLAYER, FOLLOW_PLAYER_SUCCESS, GET_PLAYER_PROFILE_SUCCESS, GET_PYALER_PROFILE, UNFOLLOW_PLAYER, UNFOLLOW_PLAYER_SUCCESS } from "./actionTypes";
+import { BLOCK_PLAYER, BLOCK_PLAYER_SUCCESS, FOLLOW_PLAYER, FOLLOW_PLAYER_SUCCESS, GET_PLAYER_PROFILE_SUCCESS, GET_PYALER_PROFILE, UNBLOCK_PLAYER, UNBLOCK_PLAYER_SUCCESS, UNFOLLOW_PLAYER, UNFOLLOW_PLAYER_SUCCESS } from "./actionTypes";
 
 
 export const getPlayerProfile = (id: string) => ({
@@ -6,9 +6,9 @@ export const getPlayerProfile = (id: string) => ({
     payload: id
 })
 
-export const getPlayerProfileSuccess = ({player, isFollowing}: {player: any, isFollowing: boolean}) => ({
+export const getPlayerProfileSuccess = ({player, isFollowing, isBlocked}: {player: any, isFollowing: boolean, isBlocked: boolean}) => ({
     type: GET_PLAYER_PROFILE_SUCCESS,
-    payload: {player, isFollowing}
+    payload: {player, isFollowing, isBlocked}
 })
 
 export const followPlayer = (id: string) => ({
@@ -29,4 +29,23 @@ export const unfollowPlayer = (id: string) => ({
 export const unfollowPlayerSucccess = (isFollowing: boolean) => ({
     type: UNFOLLOW_PLAYER_SUCCESS,
     payload: isFollowing
+});
+
+export const blockPlayer = (id: string) => ({
+    type: BLOCK_PLAYER,
+    payload: id
+})
+
+export const blockPlayerSucccess = (isBlocked: boolean) => ({
+    type: BLOCK_PLAYER_SUCCESS,
+    payload: isBlocked
+});
+export const unblockPlayer = (id: string) => ({
+    type: UNBLOCK_PLAYER,
+    payload: id
+})
+
+export const unblockPlayerSucccess = (isBlocked: boolean) => ({
+    type: UNBLOCK_PLAYER_SUCCESS,
+    payload: isBlocked
 });
