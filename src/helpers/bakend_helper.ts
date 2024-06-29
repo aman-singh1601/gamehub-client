@@ -5,6 +5,7 @@ import * as url from "./url_helper";
 
 export const registeruser = ({number}: {number: string}) =>  post(url.USER_REGISTER, {number});
 export const getallusers = () => get(url.GET_ALL_USERS);
+export const getfollowingusers = () => get(url.GET_FOLLOWING_USERS);
 
 export const getplayerprofile = (id: string) => get(`${url.GET_PLAYER_PROFILE}/${id}`);
 export const followplayer = (id: string) => post(url.FOLLOW_PLAYER, {id});

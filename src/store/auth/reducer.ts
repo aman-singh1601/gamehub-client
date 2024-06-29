@@ -5,18 +5,21 @@ import {
     USER_REGISTER_SUCCESS,
     GET_USER_FAIL,
     GET_USER_SUCCESS,
-    GET_ALL_USERS_SUCCESS
+    GET_ALL_USERS_SUCCESS,
+    GET_FOLLOWING_USERS_SUCCESS
 } from "./actionTypes";
 
 
 interface initialStateType {
     allUsers: any,
+    followingUsers: any
     error: null | string,
     success: null | string,
 }
 
 const INIT = {
     allUsers: [],
+    followingUsers: [],
     error: null,
     success: null,
 }
@@ -56,6 +59,12 @@ const auth = (state = INIT, action: any) => {
             state = {
                 ...state,
                 allUsers: action.payload
+            }
+            break;
+        case GET_FOLLOWING_USERS_SUCCESS: 
+            state= {
+                ...state,
+                followingUsers: action.payload
             }
             break;
         default: state = { ...state }
