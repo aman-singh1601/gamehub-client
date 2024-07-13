@@ -2,18 +2,38 @@ import React, { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button';
 import LoginDialog from '@/components/LoginDialog';
 import UserAvatar from '@/components/UserAvatar';
+import { Clapperboard } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Actions = () => {
-    const [user, setUser] = useState<string | null>(null);
+    const navigate = useNavigate()
+    const [user, setUser] = useState<any | null>(null);
     const [open, setOpen] = useState(false);
     useEffect(() => {
         if(localStorage.getItem("authUser")) {
-            setUser(localStorage.getItem("authUser"));
+            setUser(JSON.parse(localStorage.getItem("authUser") || ""));
         } else setUser(null)
     }, [open])
 
     return (
-        <div>
+        <div className='flex'>
+            {
+                !!user && (
+                    <div className='flex items-center gap-x-4'>
+                        <Button
+                            size= "sm"
+                            variant = "ghost"
+                            className='text-muted-foreground hover:text-primary'
+                            onClick={() => navigate(`/u/${user.id}`)}
+                        >
+                            <Clapperboard className='h-5 w-5 lg:mr-2'/>
+                            <span className='hidden lg:block'>
+                                Dashboard
+                            </span>
+                        </Button>
+                    </div>
+                )
+            }
             {!user ? (
                 <LoginDialog open={open} setOpen={setOpen}>
                     <Button
