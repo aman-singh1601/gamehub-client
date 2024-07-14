@@ -1,8 +1,11 @@
+import StreamPlayer from '@/components/StreamPlayer.tsx/StreamPlayer'
 import React from 'react'
 
 const StreamPage = () => {
   return (
-    <div>StreamPage</div>
+    <div className='p-6'>
+      <StreamPlayer/>
+    </div>
   )
 }
 

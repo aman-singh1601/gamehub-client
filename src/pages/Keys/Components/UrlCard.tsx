@@ -8,7 +8,7 @@ const UrlCard = ({
     label: string,
     value: string,
 }) => {
-
+    console.log(value);
 
     // todo add server url and token to start streaming
     return (
@@ -22,7 +22,7 @@ const UrlCard = ({
                         <Input
                             value={value}
                             disabled
-                            placeholder='Server Url'
+                            // placeholder='Server Url'
                         />
                         <CopyButton value={value} />
                     </div>

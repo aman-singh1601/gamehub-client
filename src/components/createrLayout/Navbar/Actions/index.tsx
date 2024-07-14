@@ -19,7 +19,7 @@ const Actions = () => {
                 >
                     <LogOut className='h-5 w-5 lg:mr-2' />
                     <span className='hidden lg:block'>
-                        Logout
+                        Exit
                     </span>
                 </Button>
             </div>
