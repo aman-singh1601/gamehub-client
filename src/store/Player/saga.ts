@@ -11,7 +11,6 @@ function* getPlayerProfile({payload}: any) {
         const {player, message, isFollowing, isBlocked} = yield call(getplayerprofile, payload);
         // console.log(message);
 
-        
 
         yield put(getPlayerProfileSuccess({player, isFollowing, isBlocked}));
     } catch (error) {

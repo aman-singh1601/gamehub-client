@@ -9,3 +9,5 @@ export const FOLLOW_PLAYER = "/api/player/follow";
 export const UNFOLLOW_PLAYER = "/api/player/unfollow";
 
 export const BLOCK_PLAYER = "/api/block";
+
+export const GENERATE__STREAM = "/api/stream";

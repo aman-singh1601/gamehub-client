@@ -15,3 +15,5 @@ export const unfollowplayer = (id: string) => post(url.UNFOLLOW_PLAYER, {id});
 export const blockplayer = (id: string) => post(`${url.BLOCK_PLAYER}`, {id});
 export const unblockplayer = (id: string) => del(`${url.BLOCK_PLAYER}/${id}`);
 
+
+export const getstreamcred = () => get(`${url.GENERATE__STREAM}`);
