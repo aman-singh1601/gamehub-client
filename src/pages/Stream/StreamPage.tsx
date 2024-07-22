@@ -1,4 +1,4 @@
-import StreamPlayer from '@/components/StreamPlayer.tsx/StreamPlayer'
+import StreamPlayer from '@/components/StreamPlayer/StreamPlayer'
 import React from 'react'
 
 const StreamPage = () => {

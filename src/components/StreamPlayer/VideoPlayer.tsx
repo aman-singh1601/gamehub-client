@@ -11,8 +11,8 @@ function VideoPlayer({
     hostIdentity: string
 }) {
 
-    const connectionState = true;
-    const participant = true;
+    const connectionState = false;
+    const participant = false;
     const tracks = true;
 
     let content;
